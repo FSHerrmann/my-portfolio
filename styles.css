@@ -1,0 +1,78 @@
+/* Most comments may seem unnecessary or boring, but the purpose is that, perhaps, someday, who knows, it might help someone else. */
+
+/* Base  */
+body {
+    background-color: white;
+    color: green;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1;
+    display: flex;
+    justify-content: top; 
+    align-items: center; 
+    min-height: 100vh; 
+    flex-direction: column; 
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Title */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: darkgreen; 
+}
+
+/* Site Description */
+p {
+  font-size: 1rem;
+  color: grey;
+  font-weight: 100;
+  line-height: 0;
+}
+
+
+/* Card container that holds and displays the individual projects */
+/* Defines the layout and positioning of the project cards on the page */
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 50px;
+  padding: 30px;
+  justify-content: center; /* Centers the cards horizontally within the container */
+  line-height:7;
+
+}
+
+/* Defines the appearance and style of the project cards */
+.project-card {
+  background-color: white;
+  border: 1px solid gainsboro;
+  border-radius: 8px; 
+  overflow: hidden; /* Usefull */ 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Defines the appearance of the image representing each project */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Usefull */
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-title {
+  font-size: 1.25rem; 
+  font-weight: 600; 
+  color: black; 
+}
+
+.project-description {
+  font-size: 1rem;
+  color: grey;
+  margin-top: 10px;
+}

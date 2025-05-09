@@ -1,49 +1,42 @@
-let nomeFuncionario;
-let horasTrabalhadas;
-let valorHora;
-let salarioMensal;
-let limiteHorasNormais = 220; // Limite de horas normais
-let setorFuncionario; // Defina o setor do funcionário (ex: "AD", "GE", "OP")
+let employeeName;
+let department;
+let workedHours;
+let hourlyRate;
+let monthlySalary;
+const regularHoursLimit = 220;
 
-// Função para alterar o valor do salário base de acordo com o setor
-function alterarSalarioBase(setor) {
-    if (setor === "AD") {
-        valorHora = valorHora * 1.1; // 10% a mais para o setor Administrativo
-    } else if (setor === "GE") {
-        valorHora = valorHora * 1.25; // 25% a mais para o setor Gerência
-    }
-    // O setor Operacional (OP) não altera o valor da hora, então não é necessário
+function adjustHourlyRateByDepartment(department, baseRate) {
+  if (department === "AD") {
+    return baseRate * 1.1; // 10% increase for Administrative
+  } else if (department === "GE") {
+    return baseRate * 1.25; // 25% increase for Management
+  }
+  return baseRate; // No change for Operational
 }
 
-// Função para calcular o salário mensal (com ou sem horas extras, dependendo do setor)
-function calcularSalario() {
-    if (setorFuncionario === "GE") {
-        // Gerência não tem horas extras
-        salarioMensal = horasTrabalhadas * valorHora;
-    } else {
-        // Para os setores Operacional e Administrativo, calculamos as horas extras
-        if (horasTrabalhadas > limiteHorasNormais) {
-            let horasExtras = horasTrabalhadas - limiteHorasNormais;
-            salarioMensal = (limiteHorasNormais * valorHora) + (horasExtras * valorHora * 2); // Horas extras são dobradas
-        } else {
-            salarioMensal = horasTrabalhadas * valorHora; // Caso não haja horas extras
-        }
-    }
+function calculateMonthlySalary(department, workedHours, hourlyRate) {
+  hourlyRate = adjustHourlyRateByDepartment(department, hourlyRate);
+
+  if (department === "GE") {
+    return workedHours * hourlyRate; // No overtime for Management
+  }
+
+  if (workedHours > regularHoursLimit) {
+    let overtimeHours = workedHours - regularHoursLimit;
+    return (regularHoursLimit * hourlyRate) + (overtimeHours * hourlyRate * 2);
+  } else {
+    return workedHours * hourlyRate;
+  }
 }
 
-// Exemplo de uso:
+// Example values:
+employeeName = "John";
+department = "AD"; // "OP", "AD", or "GE"
+workedHours = 240;
+hourlyRate = 10;
 
-// Definir valor hora, nome do funcionário, horas trabalhadas e setor
-nomeFuncionario = "João";
-horasTrabalhadas = 230; // Exemplo de horas trabalhadas
-valorHora = 20; // Exemplo de valor hora
-setorFuncionario = "AD"; // Exemplo de setor (pode ser "AD", "GE" ou "OP")
+monthlySalary = calculateMonthlySalary(department, workedHours, hourlyRate);
 
-// Alterando o salário base de acordo com o setor
-alterarSalarioBase(setorFuncionario);
+let overtimeHours = department === "GE" ? 0 : Math.max(0, workedHours - regularHoursLimit);
 
-// Calculando o salário mensal
-calcularSalario();
-
-// Exibindo o salário final
-console.log(`O salário de ${nomeFuncionario} é R$${salarioMensal.toFixed(2)}`);
+console.log(`The employee from the ${department} department, ${employeeName}, worked ${workedHours} hours and had ${overtimeHours} overtime hours. Their monthly salary was $${monthlySalary.toFixed(2)}.`);

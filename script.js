@@ -11,9 +11,10 @@ function loadProjects() {
 
     },
     {
-      title: "Project Two",
-      description: "A brief description of the project goes here.",
+      title: "Week 3 – Salary Calculation and Employee Information",
+      description: "A JavaScript program for calculating employee salaries, considering regular and overtime hours. Includes functions for salary calculation based on department and position (Admin and Management), and also features data validation.",
       image: "project2.jpg",
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%203/week3.html",
     },
     {
       title: "Project Three",

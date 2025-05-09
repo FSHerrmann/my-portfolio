@@ -63,6 +63,7 @@ p {
 
 .project-info {
   padding: 15px;
+  text-align: center;
 }
 
 .project-title {
@@ -75,4 +76,6 @@ p {
   font-size: 1rem;
   color: grey;
   margin-top: 10px;
+  line-height: 1.4;
+  word-wrap: break-word;
 }

@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', loadProjects);
 function loadProjects() {
   const projects = [
     {
-      title: "Project One",
-      description: "A brief description of the project goes here.",
-      image: "project1.jpg",
+      title: "Week 2 – Login & Bakery Pages",
+      description: "A login form with styled HTML/CSS and a bakery landing page with Flexbox. Includes form structure, responsive layout, and semantic HTML.",
+      image: "images/week2-thumbnail.jpg",
     },
     {
       title: "Project Two",

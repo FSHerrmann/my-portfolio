@@ -7,7 +7,7 @@ function loadProjects() {
       title: "Week 2 – Login & Bakery Pages",
       description: "A login form with styled HTML/CSS and a bakery landing page with Flexbox. Includes form structure, responsive layout, and semantic HTML.",
       image: "assets/week2-thumbnail.jpg",
-      link: "https://github.com/FSHerrmann/my-portfolio/blob/main/projects/Senai/Week%202/readme.md", // ou link do GitHub Pages
+      link: "https://FSHerrmann.github.io/my-portfolio/projects/Senai/week2.html", // ou link do GitHub Pages
 
     },
     {

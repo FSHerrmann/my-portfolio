@@ -1,6 +1,6 @@
-/* Most comments may seem unnecessary or boring, but the purpose is that, perhaps, someday, who knows, it might help someone else. */
+/* Some comments might seem unnecessary or obvious, but they exist in case one day, someone (maybe even you!) needs a small reminder or explanation. */
 
-/* Base  */
+/* Base styles for the body */
 body {
     color: green;
     font-family: 'Nunito', sans-serif;
@@ -14,73 +14,73 @@ body {
     text-align: center;
 }
 
-/* Title */
+/* Main title styling */
 h1 {
   font-size: 2.5rem;
   font-weight: 300;
   color: darkgreen; 
-  background-color: transparent; /* Make the title background transparent */
-
+  background-color: transparent; /* Transparent background to avoid layout issues */
 }
 
-/* Site Description */
+/* Website description (subtitle under the main title) */
 p {
   font-size: 1rem;
   color: grey;
   font-weight: 100;
   line-height: 0;
-  background-color: transparent; /* Make the title background transparent */
-
+  background-color: transparent;
 }
 
-
-/* Card container that holds and displays the individual projects */
-/* Defines the layout and positioning of the project cards on the page */
+/* Container for all project cards */
+/* Uses CSS Grid to align cards in 5 columns with space between them */
 .project-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 50px;
   padding: 30px;
-  justify-items: center; /* Centraliza todo o conjunto (imagem + texto) */
+  justify-items: center; /* Centers each card horizontally within its grid cell */
 }
 
-
+/* Each individual project card */
 .project-card {
-  width: 300px; /* Largura fixa */
-  height: 250px; /* Altura fixa */
+  width: 300px; /* Fixed width for consistent card layout */
+  height: 250px; /* Fixed height to align cards vertically */
   border: 1px solid gainsboro;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visual separation */
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ajusta o espaçamento entre título e descrição */
+  justify-content: space-between; /* Ensures spacing between title and description */
 }
 
+/* Project title inside each card */
 .project-title {
   margin: 20px 0 5px 0;
   font-size: 1.25rem;
   font-weight: 600;
   color: green;
   text-align: center;
-  padding: 0 10px; /* Ajusta o padding para evitar sobreposição do texto */
+  padding: 0 10px; /* Prevents text from touching the card edges */
 }
 
+/* Description text under the title */
 .project-description {
   font-size: 1rem;
   color: grey;
   text-align: center;
   margin: 0 0 20px 0;
-  padding: 10px; /* Espaçamento interno */
-  text-align: center;
+  padding: 10px;
   line-height: 1.4;
   word-wrap: break-word;
-  flex-grow: 1; /* Permite que a descrição ocupe o espaço restante */
+  flex-grow: 1; /* Makes description take up remaining space if needed */
 }
 
+/* Wrapper around each project card */
+/* Helps with layout if additional styling or spacing is needed */
 .card-wrapper {
-  width: 300px; /* Igual à largura do .project-card */
+  width: 300px; /* Matches the card width */
   display: flex;
   flex-direction: column;
   align-items: center;

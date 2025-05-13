@@ -39,7 +39,7 @@ function createProjectCard(project) {
   // Creates a clickable link that wraps around the entire card
   const link = document.createElement('a');
   link.href = project.link;
-  link.target = "_blank"; // Opens the link in a new tab
+  // link.target = "_blank"; // Opens the link in a new tab #OFF
   link.style.textDecoration = 'none'; // Removes default underline from links
   link.style.color = 'inherit'; // Ensures link text color matches card styling
   link.classList.add('card-link'); // Optional class for styling the link wrapper

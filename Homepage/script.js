@@ -19,8 +19,9 @@ function loadProjects() {
 
     },
     {
-      title: "Project Three",
-      description: "A brief description of the project goes here.",
+      title: "Week 4 – JavaScript Loops, Conditionals, and User Interaction",
+      description: "A JavaScript program that counts prime, even, and odd numbers using loops, with basic arithmetic via arrow functions and interactive results shown through the DOM.",
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/week4.html",
     },
   ];
 

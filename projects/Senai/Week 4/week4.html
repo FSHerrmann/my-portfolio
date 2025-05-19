@@ -3,60 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="../base.css">
-  <script src="../footer.js"></script>
+  <link rel="stylesheet" href="../../styles.css" />
+  <script src="../../script.js"></script>
   <title>Week 4 – Senai Web Development Course</title>
 </head>
 
-<body>
-  <h1>Week 4 – Senai Web Development Course</h1>
+<body class="week-page">
+  <div class="week-content">
+    <h1>Week 4 – Senai Web Development Course</h1>
 
-  <h2>Overview</h2>
-  <p>This page contains all the programming exercises and logic problems completed in Week 4 of the Senai Web Development course. Each task is described below and implemented in JavaScript.</p>
+    <h2>Overview</h2>
+    <p>This page contains all the programming exercises and logic problems completed in Week 4 of the Senai Web Development course. Each task is described below and implemented in JavaScript.</p>
 
-  <hr />
+    <hr />
 
-  <h2>Tasks</h2>
+    <h2>Tasks</h2>
+    <section>
+      <h3>✅ Task 1: Count Prime Numbers</h3>
+      <p><strong>Description:</strong> Develop a function that receives an integer and returns how many prime numbers exist up to and including that number. Use a <code>for</code> loop to solve this task.</p>
+      <p><strong>Example:</strong> Input 10 → Result: 4 (prime numbers are 2, 3, 5, 7)</p>
 
-  <h3>✅ Task 1: Count Prime Numbers</h3>
-  <p><strong>Description:</strong> Develop a function that receives an integer and returns how many prime numbers exist up to and including that number. Use a <code>for</code> loop to solve this task.</p>
-  <p><strong>Example:</strong> Input 10 → Result: 4 (prime numbers are 2, 3, 5, 7)</p>
+      <h3>✅ Task 2: Count Even Numbers</h3>
+      <p><strong>Description:</strong> Create a function that receives an integer and returns how many even numbers exist from 1 up to that number (excluding 0). Use a <code>while</code> or <code>do...while</code> loop.</p>
+      <p><strong>Example:</strong> Input 10 → Result: 5 (even numbers are 2, 4, 6, 8, 10)</p>
 
-  <h3>✅ Task 2: Count Even Numbers</h3>
-  <p><strong>Description:</strong> Create a function that receives an integer and returns how many even numbers exist from 1 up to that number (excluding 0). Use a <code>while</code> or <code>do...while</code> loop.</p>
-  <p><strong>Example:</strong> Input 10 → Result: 5 (even numbers are 2, 4, 6, 8, 10)</p>
+      <h3>✅ Task 3: Count Odd Numbers</h3>
+      <p><strong>Description:</strong> Create a function that receives an integer and returns how many odd numbers exist from 1 up to that number. You may use any loop structure.</p>
+      <p><strong>Example:</strong> Input 10 → Result: 5 (odd numbers are 1, 3, 5, 7, 9)</p>
 
-  <h3>✅ Task 3: Count Odd Numbers</h3>
-  <p><strong>Description:</strong> Create a function that receives an integer and returns how many odd numbers exist from 1 up to that number. You may use any loop structure.</p>
-  <p><strong>Example:</strong> Input 10 → Result: 5 (odd numbers are 1, 3, 5, 7, 9)</p>
+      <h3>✅ Task 4: Arrow Functions for Arithmetic</h3>
+      <p><strong>Description:</strong> Use arrow function syntax to create two functions: one for adding and one for subtracting two numbers.</p>
 
-  <h3>✅ Task 4: Arrow Functions for Arithmetic</h3>
-  <p><strong>Description:</strong> Use arrow function syntax to create two functions: one for adding and one for subtracting two numbers.</p>
+      <h3>✅ Task 5: Interactive Menu</h3>
+      <p><strong>Description:</strong> Build a simple menu that allows the user to choose and execute any of the previous tasks using buttons. The menu should include the following options:</p>
+      <ul>
+        <li>[1] Add two numbers</li>
+        <li>[2] Subtract two numbers</li>
+        <li>[3] Count even numbers</li>
+        <li>[4] Count odd numbers</li>
+        <li>[5] Count prime numbers</li>
+        <li>[6] Exit</li>
+      </ul>
+      <br>
+      <p class="folder">📁 Located in: <a href="https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/functions.html"><code>Week 4/functions.html</code></a></p>
 
-  <h3>✅ Task 5: Interactive Menu</h3>
-  <p><strong>Description:</strong> Build a simple menu that allows the user to choose and execute any of the previous tasks using buttons. The menu should include the following options:</p>
-  <ul>
-    <li>[1] Add two numbers</li>
-    <li>[2] Subtract two numbers</li>
-    <li>[3] Count even numbers</li>
-    <li>[4] Count odd numbers</li>
-    <li>[5] Count prime numbers</li>
-    <li>[6] Exit</li>
-  </ul>
-  <br>
-  <p class="folder">📁 Located in: <a href="https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/functions.html"><code>Week 4/functions.html</code></a></p>
+      <h3>✅ Task 6: Code Explanation – Even and Prime Numbers</h3>
+      <p><strong>Description:</strong> Provide a detailed explanation of the logic used to count even and prime numbers.</p>
 
+      <h4>Even Numbers</h4>
+      <p>The <code>countEven</code> function uses a <code>while</code> loop that starts at the input number and counts down to 1. In each iteration, it checks if the number is divisible by 2 (i.e., even). If so, it increases the counter. The final result is the total number of even integers found in the range.</p>
 
-  <h3>✅ Task 6: Code Explanation – Even and Prime Numbers</h3>
-  <p><strong>Description:</strong> Provide a detailed explanation of the logic used to count even and prime numbers.</p>
+      <h4>Prime Numbers</h4>
+      <p>The <code>countPrimes</code> function uses a <code>for</code> loop that iterates from the given number down to 2. For each number, it checks if it is divisible only by 1 and itself by testing all values from 2 up to that number (exclusive). If no divisor is found, it is counted as a prime. The function returns both the list of prime numbers found and their total count.</p>
+    </section>
+  </div>
 
-  <h4>Even Numbers</h4>
-  <p>The <code>countEven</code> function uses a <code>while</code> loop that starts at the input number and counts down to 1. In each iteration, it checks if the number is divisible by 2 (i.e., even). If so, it increases the counter. The final result is the total number of even integers found in the range.</p>
-
-  <h4>Prime Numbers</h4>
-  <p>The <code>countPrimes</code> function uses a <code>for</code> loop that iterates from the given number down to 2. For each number, it checks if it is divisible only by 1 and itself by testing all values from 2 up to that number (exclusive). If no divisor is found, it is counted as a prime. The function returns both the list of prime numbers found and their total count.</p>
-
-  <div id="footer"></div>
-
+<div id="footer"></div>
+<script src="../../script.js"></script>
 </body>
 </html>

@@ -1,70 +1,96 @@
-// Waits until the HTML content is fully loaded before executing the script
-document.addEventListener('DOMContentLoaded', loadProjects);
+// Espera o carregamento completo da página para executar tudo
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementById('project-container')) {
+    loadProjects();
+  }
+  if (document.getElementById('footer')) {
+    loadFooter();
+  }
+});
 
-// Loads all the project cards dynamically into the page
+// Carrega os cards dos projetos dinamicamente (só para index.html)
 function loadProjects() {
   const projects = [
     {
       title: "Week 2 – Login & Bakery Pages",
       description: "A login form with styled HTML/CSS and a bakery landing page with Flexbox. Includes form structure, responsive layout, and semantic HTML.",
-      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%202/week2.html", // Link to the hosted project
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%202/week2.html",
       tags: ["HTML", "CSS", "Flexbox", "Forms"]
-
     },
     {
       title: "Week 3 – Salary Calculation and Employee Information",
       description: "A JavaScript program for calculating employee salaries, considering regular and overtime hours. Includes functions for salary calculation based on department and position (Admin and Management), and also features data validation.",
       link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%203/week3.html",
       tags: ["JavaScript", "Logic", "Conditionals", "Functions"]
-
     },
     {
       title: "Week 4 – JavaScript Loops, Conditionals, and User Interaction",
       description: "A JavaScript program that counts prime, even, and odd numbers using loops, with basic arithmetic via arrow functions and interactive results shown through the DOM.",
-      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/week4.html",
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/week4.html"
     },
   ];
 
-  // Gets the container element where all project cards will be inserted
   const container = document.getElementById('project-container');
+  if (!container) return;
 
-  // Iterates over each project object and creates a visual card for it
   projects.forEach(project => {
     const projectCard = createProjectCard(project);
-    container.appendChild(projectCard); // Adds the card to the page
+    container.appendChild(projectCard);
   });
 }
 
-// Creates an individual project card element based on a project's data
 function createProjectCard(project) {
-  // Creates a clickable link that wraps around the entire card
   const link = document.createElement('a');
   link.href = project.link;
-  // link.target = "_blank"; // Opens the link in a new tab #OFF
-  link.style.textDecoration = 'none'; // Removes default underline from links
-  link.style.color = 'inherit'; // Ensures link text color matches card styling
-  link.classList.add('card-link'); // Optional class for styling the link wrapper
+  link.style.textDecoration = 'none';
+  link.style.color = 'inherit';
+  link.classList.add('card-link');
 
-  // Creates the card element
   const card = document.createElement('div');
   card.classList.add('project-card');
 
-  // Creates and fills in the project title
   const title = document.createElement('h2');
   title.classList.add('project-title');
   title.textContent = project.title;
 
-  // Creates and fills in the project description
   const description = document.createElement('p');
   description.classList.add('project-description');
   description.textContent = project.description;
 
-  // Appends the title and description to the card
   card.appendChild(title);
   card.appendChild(description);
-
-  // Puts the entire card inside the clickable link
   link.appendChild(card);
 
-  return link; // Returns the completed card element
+  return link;
+}
+
+// Função dinâmica para determinar o caminho correto do template
+function getFooterPath() {
+  // Se está no index.html na raiz de projects/
+  if (
+    location.pathname.endsWith('/projects/index.html') ||
+    location.pathname.endsWith('/projects/') ||
+    location.pathname.match(/\/projects\/(index\.html)?$/)
+  ) {
+    return './Senai/template.html';
+  }
+  // Senão, está em alguma subpasta (Week 2, Week 3, etc)
+  return '../template.html';
+}
+
+function loadFooter() {
+  fetch(getFooterPath())
+    .then(response => response.text())
+    .then(html => {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const footer = tempDiv.querySelector('footer');
+      if (footer) {
+        document.getElementById('footer').innerHTML = footer.outerHTML;
+      }
+    })
+    .catch(err => {
+      document.getElementById('footer').innerHTML = '<footer>Footer not found.</footer>';
+      console.error('Footer load error:', err);
+    });
 }

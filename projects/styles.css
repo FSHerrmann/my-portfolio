@@ -5,15 +5,7 @@
   box-sizing: border-box;
 }
 
-main {
-  flex: 1;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== Color Variables ===== */
+/* ===== Color Palette Variables ===== */
 :root {
   --primary-color: #E63946;
   --secondary-color: #1D3557;
@@ -22,7 +14,11 @@ html {
   --light-blue: #A8DADC;
 }
 
-/* ===== Base Body Style ===== */
+/* ===== Global Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -32,9 +28,25 @@ body {
   color: var(--secondary-color);
   background-color: var(--background-color);
   margin: 0 auto;
-  max-width: 800px;
   padding: 1rem;
   position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Homepage Specific ===== */
+body.homepage {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+body.homepage p {
+  color: var(--highlight-color);
+  font-weight: 300;
+  margin: 0.5rem 0 1rem;
 }
 
 /* ===== Body style for project pages ===== */
@@ -49,7 +61,7 @@ body.projects-page {
 
 /* ===== Typography ===== */
 h1 {
-  margin-bottom: 0.5em;
+  margin: 1.5rem 0 0.5em;
   line-height: 1.2;
   color: var(--primary-color);
   font-size: 2.5rem;
@@ -63,7 +75,9 @@ h2, h3 {
 }
 
 p {
-  margin-bottom: 1em;
+  margin: 0.5rem 0 1rem;
+  font-size: 1rem;
+  color: var(--secondary-color);
 }
 
 code {
@@ -133,7 +147,7 @@ hr {
 }
 
 .project-title {
-  margin: 20px 0 5px 0;
+  margin: 20px 0 5px;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--primary-color);
@@ -145,7 +159,7 @@ hr {
   font-size: 1rem;
   color: var(--highlight-color);
   text-align: center;
-  margin: 0 0 20px 0;
+  margin: 0 0 20px;
   padding: 10px;
   line-height: 1.4;
   word-wrap: break-word;
@@ -212,4 +226,61 @@ footer a:hover {
     flex-direction: column;
     gap: 1rem;
   }
+}
+
+.tasks-section h3, .tasks-section p, .tasks-section ul {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+body.week-page {
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  padding: 2rem 0 !important;
+}
+
+/* Container para centralizar e limitar largura, alinhando conteúdo à esquerda */
+.week-content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem 2rem 1rem;
+}
+
+.week-content h1,
+.week-content h2,
+.week-content h3,
+.week-content h4,
+.week-content p,
+.week-content ul {
+  text-align: left;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color);
+  opacity: 0.85;
+  transition: opacity 0.2s, color 0.2s;
+  font-size: 1.5rem;
+}
+.social-icons a:hover {
+  color: var(--primary-color);
+  opacity: 1;
+}
+
+.social-icons svg {
+  width: 24px;
+  height: 24px;
+  display: block;
 }

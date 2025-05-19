@@ -1,0 +1,242 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', Arial, sans-serif;
+  background: #f1faee;
+  color: #1D3557;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about-me {
+  background: #f1faee;
+  min-height: 100vh;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.about-avatar {
+  width: 100px;
+  height: 140px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #E63946;
+  box-shadow: 0 4px 24px rgba(29,53,87,0.11);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.about-image {
+  width: 100px;
+  height: 150px;
+  border-radius: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-name {
+  font-size: 1.5rem;
+  color: #E63946;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px #fff8;
+}
+
+.about-content {
+  max-width: 650px;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.65;
+  margin-bottom: 1.6rem;
+  color: #1D3557;
+}
+
+/* Botão fixo e centralizado na tela */
+.scroll-down-link {
+  position: fixed;
+  left: 50%;
+  bottom: 1.2rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #457B9D;
+  animation: bounce 2.1s infinite;
+  cursor: pointer;
+  z-index: 99;
+  width: auto;
+  max-width: 100vw;
+  gap: 0;
+}
+
+.scroll-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.scroll-down-link svg {
+  width: 42px;
+  height: 42px;
+  fill: #457B9D;
+  transition: fill 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.scroll-down-link:hover svg {
+  fill: #E63946;
+}
+
+.scroll-text {
+  font-size: 1.05rem;
+  margin-top: -2px;
+  color: #457B9D;
+  display: block;
+  text-align: center;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(12px);}
+}
+
+/* Projects Section */
+#projects {
+  background: #fff;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 4.5rem;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #E63946;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Flip card styles */
+.flip-card {
+  background: none;
+  border: none;
+  perspective: 1000px;
+  width: 280px;
+  height: 210px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(29,53,87,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.flip-card-front {
+  background: #fff;
+  color: #E63946;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  border: 1px solid #A8DADC;
+}
+
+.flip-card-back {
+  background: #A8DADC;
+  color: #1D3557;
+  transform: rotateY(180deg);
+  font-size: 1rem;
+  text-align: center;
+  border: 1px solid #457B9D;
+}
+
+.flip-card-back a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5em 1.2em;
+  background: #457B9D;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.18s;
+}
+
+.flip-card-back a:hover {
+  background: #E63946;
+}
+
+@media (max-width: 700px) {
+  .projects-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .flip-card {
+    width: 96vw;
+    max-width: 330px;
+  }
+  #about-me {
+    width: 100vw;
+    position: relative;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-name { font-size: 1.4rem; }
+  .section-title { font-size: 1.3rem; }
+  .about-content { font-size: 1rem;}
+  .about-avatar { width: 130px; height: 130px;}
+  .about-image { width: 90px; height: 90px;}
+}

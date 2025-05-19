@@ -30,9 +30,10 @@ section {
 }
 
 .about-avatar {
-  width: 100px;
-  height: 140px;
-  border-radius: 50%;
+  width: 25vw;
+  max-width: 160px;
+  aspect-ratio: 2/3; /* Mantém formato oval */
+  border-radius: 50% 50% / 60% 40%;
   background: #fff;
   border: 2px solid #E63946;
   box-shadow: 0 4px 24px rgba(29,53,87,0.11);
@@ -44,9 +45,9 @@ section {
 }
 
 .about-image {
-  width: 100px;
-  height: 150px;
-  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% / 60% 40%;
   object-fit: cover;
   display: block;
 }
@@ -112,7 +113,6 @@ section {
   z-index: 2;
   margin: 0 12px;
   font-size: clamp(1.7rem, 2.3vw, 2.1rem);
-
 }
 
 .carousel-arrow:disabled {
@@ -133,7 +133,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: visible; /* Importante para não cortar o card durante o flip */
+  overflow: visible;
   position: relative;
 }
 
@@ -192,7 +192,6 @@ section {
   padding: 1.2rem 1.1rem;
   box-sizing: border-box;
   font-size: clamp(0.99rem, 1.85vw, 1.15rem);
-
 }
 
 .flip-card-front {
@@ -266,6 +265,16 @@ section {
   .about-name { font-size: 1.4rem; }
   .section-title { font-size: 1.4rem; }
   .about-content { font-size: 1rem;}
-  .about-avatar { width: 130px; height: 130px;}
-  .about-image { width: 90px; height: 90px;}
+  .about-avatar { 
+    width: 46vw; 
+    max-width: 150px; 
+    aspect-ratio: 2/3; 
+    height: auto;
+    border-radius: 50% 50% / 65% 35%;
+  }
+  .about-image { 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50% 50% / 65% 35%; 
+  }
 }

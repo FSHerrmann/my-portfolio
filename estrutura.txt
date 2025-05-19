@@ -1,12 +1,16 @@
 Listagem de caminhos de pasta para o volume Windows-SSD
 O número de série do volume é 1271-6398
 C:.
+¦   carousel.js
 ¦   estrutura.txt
 ¦   index.html
 ¦   Me.png
 ¦   README.md
 ¦   style.css
 ¦   
++---.vscode
+¦       launch.json
+¦       
 +---projects
     ¦   index.html
     ¦   script.js

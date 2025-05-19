@@ -1,0 +1,42 @@
+Listagem de caminhos de pasta para o volume Windows-SSD
+O número de série do volume é 1271-6398
+C:.
+¦   estrutura.txt
+¦   README.md
+¦   
++---Homepage
+¦       homepage.html
+¦       Me.png
+¦       styless.css
+¦       
++---projects
+    ¦   index.html
+    ¦   script.js
+    ¦   styles.css
+    ¦   
+    +---Senai
+        ¦   template.html
+        ¦   
+        +---Week 2
+        ¦   ¦   readme.md
+        ¦   ¦   week2.html
+        ¦   ¦   
+        ¦   +---01-login-form
+        ¦   ¦       Login.html
+        ¦   ¦       styles.css
+        ¦   ¦       
+        ¦   +---02 - bakery-landing-page
+        ¦           Bakery.html
+        ¦           styles.css
+        ¦           
+        +---Week 3
+        ¦   ¦   week3.html
+        ¦   ¦   
+        ¦   +---01-salary-calculator
+        ¦           salary.js
+        ¦           
+        +---Week 4
+                funcs.js
+                functions.html
+                week4.html
+                

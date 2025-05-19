@@ -7,6 +7,12 @@ body {
   font-family: 'Nunito', Arial, sans-serif;
   background: #f1faee;
   color: #1D3557;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 section {
@@ -16,7 +22,6 @@ section {
   align-items: center;
 }
 
-/* About Me Section */
 #about-me {
   background: #f1faee;
   min-height: 100vh;
@@ -32,7 +37,7 @@ section {
 .about-avatar {
   width: 25vw;
   max-width: 160px;
-  aspect-ratio: 2/3; /* Mantém formato oval */
+  aspect-ratio: 2/3;
   border-radius: 50% 50% / 60% 40%;
   background: #fff;
   border: 2px solid #E63946;
@@ -52,17 +57,32 @@ section {
   display: block;
 }
 
+.section-title,
+.about-content,
 .about-name {
+  width: 100%;
+  max-width: 650px;
+  box-sizing: border-box;
+  padding-left: 12px;
+  padding-right: 12px;
+  word-break: break-word;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-name {
+  color: #E63946 !important;
   font-size: clamp(1.4rem, 4vw, 2.7rem);
-  color: #E63946;
   font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
   text-shadow: 0 1px 4px #fff8;
 }
 
 .about-content {
-  max-width: 650px;
   font-size: clamp(1.05rem, 2vw, 1.19rem);
   text-align: center;
   line-height: 1.65;
@@ -70,7 +90,6 @@ section {
   color: #1D3557;
 }
 
-/* Projects Section */
 #projects {
   background: #f1faee;
   position: relative;
@@ -81,38 +100,42 @@ section {
 .section-title {
   font-size: clamp(1.4rem, 4vw, 2.7rem);
   color: #E63946;
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   text-align: center;
 }
 
-/* Carousel styles */
 .carousel-container {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 270px;
+  max-width: min(420px, 98vw);
   margin: 0 auto;
   position: relative;
   min-height: 330px;
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+  margin-top: 0.4rem;
+  z-index: 5;
+  padding-top: 3rem;   /* Espaço extra acima do carrossel */
 }
 
 .carousel-arrow {
-  background: #fff;
-  border: 2px solid #457B9D;
-  color: #457B9D;
-  font-size: 2.1rem;
+  width: 28px;
+  height: 28px;
+  font-size: 1.1rem;
+  margin: 0 2px;
   border-radius: 50%;
-  width: 46px;
-  height: 46px;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  margin: 0 12px;
-  font-size: clamp(1.7rem, 2.3vw, 2.1rem);
+  border: 1.5px solid #457B9D;
+  background: #fff;
+  color: #457B9D;
+  transition: background 0.18s, color 0.18s;
+  z-index: 20;
+  position: relative;
 }
 
 .carousel-arrow:disabled {
@@ -127,45 +150,73 @@ section {
 }
 
 .carousel-track {
+  position: relative;
   width: 100%;
-  max-width: 220px;
+  max-width: 400px;
+  min-width: 0;
   min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: visible;
-  position: relative;
 }
 
 .carousel-track .flip-card {
   display: none;
   margin: 0 auto;
+  pointer-events: none;
 }
-
 .carousel-track .flip-card.active {
   display: block;
+  pointer-events: auto;
+}
+.carousel-track .flip-card.prev,
+.carousel-track .flip-card.next {
+  display: block;
+  pointer-events: none;
 }
 
-/* Flip card styles (retângulo vertical, bordas arredondadas, centralizado) */
 .flip-card {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  opacity: 0;
+  transition:
+    transform 0.9s cubic-bezier(.42,1.65,.32,1),
+    opacity 0.5s,
+    box-shadow 0.5s;
+  z-index: 1;
+  width: 200px;
+  max-width: 98vw;
+  aspect-ratio: 2 / 3;
   background: none;
   border: none;
-  perspective: 1000px;
-  width: 200px;
-  height: 300px;
-  cursor: pointer;
-  margin: 0 auto;
-  transition: box-shadow 0.22s;
+  perspective: 1200px;
   border-radius: 24px;
   box-shadow: 0 2px 12px rgba(29,53,87,0.11);
-  position: relative;
+}
+
+.flip-card.active {
+  opacity: 1;
+  z-index: 3;
+  transform: translateX(-50%) scale(1) rotateY(0deg);
+}
+.flip-card.next {
+  opacity: 0.5;
+  z-index: 2;
+  transform: translateX(70%) scale(0.85) rotateY(-22deg);
+}
+.flip-card.prev {
+  opacity: 0.5;
+  z-index: 2;
+  transform: translateX(-170%) scale(0.85) rotateY(22deg);
 }
 
 .flip-card-inner {
   width: 100%;
   height: 100%;
   position: relative;
-  transition: transform 0.6s cubic-bezier(.4,2,.5,.8);
+  transition: transform 1.2s cubic-bezier(.4,2,.5,.8);
   transform-style: preserve-3d;
   border-radius: 24px;
 }
@@ -189,9 +240,11 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.2rem 1.1rem;
+  padding: 1rem 0.5rem;
   box-sizing: border-box;
   font-size: clamp(0.99rem, 1.85vw, 1.15rem);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .flip-card-front {
@@ -228,53 +281,134 @@ section {
   background: #E63946;
 }
 
-/* Responsive adjustments */
+/* Responsivo */
 @media (max-width: 700px) {
-  .section-title {
-    font-size: 1.3rem;
+  .section-title,
+  .about-content,
+  .about-name {
+    max-width: 100vw;
+    padding-left: 8px;
+    padding-right: 8px;
   }
   .carousel-container {
-    max-width: 95vw;
-    min-height: 330px;
+    max-width: 99vw;
+    min-height: 310px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2.4rem;
   }
   .carousel-track {
-    max-width: 95vw;
-    min-height: 320px;
+    max-width: 99vw;
+    min-width: 0;
+    min-height: 300px;
   }
   .flip-card {
-    width: 86vw;
+    width: 90vw;
     max-width: 260px;
-    height: 270px;
+    aspect-ratio: 2 / 3;
+  }
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 0.5rem 0.6rem 0.5rem;
+  background: transparent;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #1D3557;
+  opacity: 0.82;
+  transition: opacity 0.18s, color 0.18s;
+}
+.social-icons a:hover {
+  color: #E63946;
+  opacity: 1;
+}
+
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.97rem;
+  color: #1D3557;
+  background: #f1faee;
+  border-top: 1px solid #A8DADC;
+  line-height: 1.4;
+}
+footer p {
+  margin: 0.8rem 0 0 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    font-size: 0.95rem;
+    padding: 0.8rem 0.3rem 0.4rem 0.3rem;
+  }
+  .social-icons {
+    gap: 1.1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .carousel-container {
+    padding-top: 3.2rem !important;
   }
 }
 
 @media (max-width: 480px) {
+  .section-title,
+  .about-content,
+  .about-name {
+    max-width: 100vw;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
   .flip-card {
-    width: 94vw;
-    max-width: 320px;
-    height: 230px;
+    width: 96vw;
+    max-width: 340px;
+    aspect-ratio: 2 / 3;
   }
   .carousel-container,
   .carousel-track {
-    min-height: 240px;
+    min-height: 180px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 2.2rem !important;
+  }
+  .carousel-arrow {
+    margin: 0 2px;
+  }
+  .flip-card-front,
+  .flip-card-back {
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
 
-/* Responsivo para About Me */
 @media (max-width: 600px) {
   .about-name { font-size: 1.4rem; }
   .section-title { font-size: 1.4rem; }
   .about-content { font-size: 1rem;}
-  .about-avatar { 
-    width: 46vw; 
-    max-width: 150px; 
-    aspect-ratio: 2/3; 
+  .about-avatar {
+    width: 46vw;
+    max-width: 150px;
+    aspect-ratio: 2/3;
     height: auto;
     border-radius: 50% 50% / 65% 35%;
   }
-  .about-image { 
-    width: 100%; 
-    height: 100%; 
-    border-radius: 50% 50% / 65% 35%; 
+  .about-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% / 65% 35%;
   }
 }

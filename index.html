@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Felipe Schneider – Portfolio</title>
+  <title>Felipe Herrmann – Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
   <section id="about-me">
-    <div class="about-avatar">
+    <div class="about-avatar" data-aos="fade-down">
       <img class="about-image" src="Me.png" alt="Felipe Herrmann">
     </div>
-    <div class="about-name">Felipe Herrmann</div>
-    <div class="about-content">
+    <div class="about-name" data-aos="fade-up" data-aos-delay="100">Felipe Herrmann</div>
+    <div class="about-content" data-aos="fade-up" data-aos-delay="200">
       Welcome to my personal page!<br>
       I am a developer with experience in web development, Python, business intelligence (BI), and databases.
       I have participated in various projects, which have broadened my perspective on technology and problem-solving.
@@ -24,44 +26,57 @@
     </div>
   </section>
   <section id="projects">
-    <h1 class="section-title">Projects</h1>
-    <div class="projects-grid">
-      <!-- SENAI FLIP CARD -->
-      <div class="flip-card" tabindex="0">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <span style="font-size:2.3rem;">📚</span>
-            <div style="margin-top:0.7rem;font-size:1.1rem;">Senai Web Course</div>
-            <div style="margin-top:0.5rem;font-size:0.95rem; color:#457B9D;">Week 2, 3, 4 & More</div>
-          </div>
-          <div class="flip-card-back">
-            <div><b>Senai Full Stack Web Development</b></div>
-            <div style="margin:0.6rem 0;">
-              Weekly challenges: login forms, salary calculator, JS logic, and interactive menus.
+    <h1 class="section-title" data-aos="fade-right">Projects</h1>
+    <div class="carousel-container">
+      <button class="carousel-arrow carousel-arrow-left">&#8592;</button>
+      <div class="carousel-track">
+        <!-- SENAI FLIP CARD -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span style="font-size:2.3rem;">📚</span>
+              <div style="margin-top:0.7rem;font-size:1.1rem;">Senai Web Course</div>
+              <div style="margin-top:0.5rem;font-size:0.95rem; color:#457B9D;">Week 2, 3, 4 & More</div>
             </div>
-            <a href="projects/index.html">Ver todas as semanas</a>
+            <div class="flip-card-back">
+              <div><b>Senai Full Stack Web Development</b></div>
+              <div style="margin:0.6rem 0;">
+                Weekly challenges: login forms, salary calculator, JS logic, and interactive menus.
+              </div>
+              <a href="projects/index.html" target="_blank">See all weeks</a>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- OUTRO FLIP CARD DE EXEMPLO -->
-      <div class="flip-card" tabindex="0">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <span style="font-size:2.3rem;">⚡</span>
-            <div style="margin-top:0.7rem;font-size:1.1rem;">To-Do App</div>
-            <div style="margin-top:0.5rem;font-size:0.95rem; color:#457B9D;">React • Productivity</div>
-          </div>
-          <div class="flip-card-back">
-            <div><b>To-Do List Project</b></div>
-            <div style="margin:0.6rem 0;">
-              Gerencie tarefas com interface minimalista e responsiva.
+        <!-- EXAMPLE SECOND CARD -->
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <span style="font-size:2.3rem;">⚡</span>
+              <div style="margin-top:0.7rem;font-size:1.1rem;">To-Do App</div>
+              <div style="margin-top:0.5rem;font-size:0.95rem; color:#457B9D;">React • Productivity</div>
             </div>
-            <a href="#">Ver Projeto</a>
+            <div class="flip-card-back">
+              <div><b>To-Do List Project</b></div>
+              <div style="margin:0.6rem 0;">
+                Manage your tasks with a minimalist and responsive interface.
+              </div>
+              <a href="#" target="_blank">See Project</a>
+            </div>
           </div>
         </div>
+        <!-- Add more cards as needed -->
       </div>
-      <!-- Adicione outros projetos aqui -->
+      <button class="carousel-arrow carousel-arrow-right">&#8594;</button>
     </div>
   </section>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="carousel.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true
+    });
+  </script>
 </body>
 </html>

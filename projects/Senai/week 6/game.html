@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 6 – Hangman Game</title>
+  <style>
+    /* Basic styling for Hangman game */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 0.2em;
+    }
+    #word-container {
+      letter-spacing: 10px;
+      font-size: 2em;
+      margin: 20px 0;
+      user-select: none;
+    }
+    #wrong-letters, #used-letters {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    input[type="text"] {
+      width: 50px;
+      font-size: 1.5em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hangman Game</h1>
+    <div id="word-container"></div>
+
+    <div>
+      <label for="letter-input">Guess a letter:</label>
+      <input type="text" id="letter-input" maxlength="1" autofocus />
+      <button id="guess-btn">Guess</button>
+    </div>
+
+    <div id="wrong-letters"><strong>Wrong Letters:</strong> <span id="wrong-list"></span></div>
+
+    <div id="message"></div>
+
+    <button id="restart-btn" style="display:none;">Play Again</button>
+  </main>
+
+  <script>
+    // Array with 30 words (no accents or special characters)
+    const words = [
+      "javascript", "hangman", "programming", "developer", "computer",
+      "algorithm", "function", "variable", "object", "array",
+      "browser", "document", "element", "stylesheet", "internet",
+      "node", "react", "angular", "vue", "typescript",
+      "python", "java", "css", "html", "json",
+      "frontend", "backend", "database", "server", "debug"
+    ];
+
+    // Select random word from array
+    let selectedWord = "";
+    let guessedLetters = new Set();
+    let wrongLetters = new Set();
+
+    // DOM elements
+    const wordContainer = document.getElementById('word-container');
+    const letterInput = document.getElementById('letter-input');
+    const guessBtn = document.getElementById('guess-btn');
+    const wrongList = document.getElementById('wrong-list');
+    const messageDiv = document.getElementById('message');
+    const restartBtn = document.getElementById('restart-btn');
+
+    // Load player nickname from localStorage
+    const playerNickname = localStorage.getItem('hangmanNickname') || "Player";
+
+    // Initialize game
+    function initGame() {
+      selectedWord = words[Math.floor(Math.random() * words.length)].toUpperCase();
+      guessedLetters.clear();
+      wrongLetters.clear();
+      messageDiv.textContent = "";
+      restartBtn.style.display = "none";
+      letterInput.disabled = false;
+      guessBtn.disabled = false;
+      letterInput.value = "";
+      updateWordDisplay();
+      updateWrongLetters();
+      letterInput.focus();
+    }
+
+    // Update word display with guessed letters and underscores
+    function updateWordDisplay() {
+      let display = "";
+      for (const char of selectedWord) {
+        display += guessedLetters.has(char) ? char + " " : "_ ";
+      }
+      wordContainer.textContent = display.trim();
+    }
+
+    // Update wrong letters display
+    function updateWrongLetters() {
+      wrongList.textContent = Array.from(wrongLetters).join(", ");
+    }
+
+    // Check if player has won
+    function checkWin() {
+      for (const char of selectedWord) {
+        if (!guessedLetters.has(char)) return false;
+      }
+      return true;
+    }
+
+    // Handle guess
+    function handleGuess() {
+      const guess = letterInput.value.toUpperCase();
+
+      // Validate input
+      if (!guess.match(/^[A-Z]$/)) {
+        alert("Please enter a valid letter (A-Z).");
+        letterInput.value = "";
+        letterInput.focus();
+        return;
+      }
+
+      // Check if letter was already guessed
+      if (guessedLetters.has(guess) || wrongLetters.has(guess)) {
+        alert("You already guessed that letter!");
+        letterInput.value = "";
+        letterInput.focus();
+        return;
+      }
+
+      // Check if letter in word
+      if (selectedWord.includes(guess)) {
+        guessedLetters.add(guess);
+        updateWordDisplay();
+
+        if (checkWin()) {
+          messageDiv.style.color = "green";
+          messageDiv.textContent = `Congratulations, ${playerNickname}! You won! 🎉`;
+          endGame();
+        }
+      } else {
+        wrongLetters.add(guess);
+        updateWrongLetters();
+      }
+
+      letterInput.value = "";
+      letterInput.focus();
+    }
+
+    // End game: disable inputs and show restart button
+    function endGame() {
+      letterInput.disabled = true;
+      guessBtn.disabled = true;
+      restartBtn.style.display = "inline-block";
+    }
+
+    // Event listeners
+    guessBtn.addEventListener('click', handleGuess);
+    letterInput.addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') {
+        handleGuess();
+      }
+    });
+    restartBtn.addEventListener('click', initGame);
+
+    // Start game on page load
+    window.onload = initGame;
+  </script>
+</body>
+</html>

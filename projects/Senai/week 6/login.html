@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 6 – Hangman Login</title>
+  <style>
+    /* Simple styles for the login page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    main {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    input {
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #error-message {
+      color: red;
+      margin-bottom: 15px;
+      min-height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hangman Game Login</h1>
+    <form id="login-form">
+      <label for="nickname">Enter your nickname:</label>
+      <input type="text" id="nickname" name="nickname" placeholder="Your nickname" required />
+      <div id="error-message"></div>
+      <button type="submit">Start Game</button>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('login-form');
+    const errorDiv = document.getElementById('error-message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nicknameInput = form['nickname'].value.trim();
+
+      if (nicknameInput === '') {
+        errorDiv.textContent = "Please enter a valid nickname.";
+        return;
+      }
+
+      // Save nickname in localStorage
+      localStorage.setItem('hangmanNickname', nicknameInput);
+
+      // Redirect to game page
+      window.location.href = 'game.html';
+    });
+  </script>
+</body>
+</html>

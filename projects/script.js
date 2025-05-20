@@ -14,13 +14,13 @@ function loadProjects() {
     {
       title: "Week 2 – Login & Bakery Pages",
       description: "A login form with styled HTML/CSS and a bakery landing page with Flexbox. Includes form structure, responsive layout, and semantic HTML.",
-      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week2/week2.html",
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week2/week2.html",
       tags: ["HTML", "CSS", "Flexbox", "Forms"]
     },
     {
       title: "Week 3 – Salary Calculation and Employee Information",
       description: "A JavaScript program for calculating employee salaries, considering regular and overtime hours. Includes functions for salary calculation based on department and position (Admin and Management), and also features data validation.",
-      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week3/week3.html",
+      link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week3/week3.html",
       tags: ["JavaScript", "Logic", "Conditionals", "Functions"]
     },
     {
@@ -32,13 +32,13 @@ function loadProjects() {
     {
     "title": "Week 5 – Login Screen with Department Validation and Interactions",
     "description": "Login form with user code, department selection, and password. Validates credentials with JavaScript and shows dynamic content for Commercial, HR, and IT departments, including product display, salary table, and binary conversion.",
-    "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/eek5/week5.html",
+    "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week5/week5.html",
     "tags": ["HTML", "CSS", "JavaScript", "Form Validation", "DOM Manipulation", "Event Handling"]
     },
     {
   "title": "Week 6 – Hangman Game with Login and LocalStorage",
   "description": "A Hangman game with a login screen that saves the player's nickname in localStorage. Includes word selection, letter guessing with validation, display of correct and wrong letters, win message with player's nickname, and game restart.",
-  "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/week6/game.html",
+  "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week6/game.html",
   "tags": ["HTML", "CSS", "JavaScript", "Game Development", "LocalStorage", "Event Handling"]
   }, 
   ];

@@ -1,0 +1,123 @@
+/* General page styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Navigation menu styles */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+nav h1 {
+  margin: 0 0 0.5rem 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li {
+  cursor: pointer;
+  padding-bottom: 0.25rem;
+  transition: border-bottom 0.3s ease;
+}
+
+nav ul li.selected {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+
+/* Presentation screen layout */
+.presentation-screen {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.presentation-screen .text-section {
+  flex: 1;
+}
+
+.presentation-screen img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+/* Cards grid layout (used for Gnocchi and Pastas) */
+.cards-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.cards-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cards-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  flex: 1;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Sauces list */
+.sauces-list {
+  margin-top: 0.5rem;
+  padding-left: 1.2rem;
+}
+
+/* Drinks categories and lists */
+.drinks-category {
+  margin-bottom: 1rem;
+}
+
+.drinks-category h3 {
+  margin-bottom: 0.3rem;
+}
+
+/* Footer styles */
+footer {
+  border-top: 1px solid #ccc;
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+footer .social-icons a {
+  margin: 0 0.5rem;
+}
+
+footer .social-icons img {
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+}

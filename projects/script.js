@@ -30,17 +30,23 @@ function loadProjects() {
       tags: ["JavaScript", "Loops", "Conditionals", "Arrow Functions", "DOM Manipulation", "User Interaction"]
     },
     {
-    "title": "Week 5 – Login Screen with Department Validation and Interactions",
-    "description": "Login form with user code, department selection, and password. Validates credentials with JavaScript and shows dynamic content for Commercial, HR, and IT departments, including product display, salary table, and binary conversion.",
-    "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week5/week5.html",
-    "tags": ["HTML", "CSS", "JavaScript", "Form Validation", "DOM Manipulation", "Event Handling"]
+    title: "Week 5 – Login Screen with Department Validation and Interactions",
+    description: "Login form with user code, department selection, and password. Validates credentials with JavaScript and shows dynamic content for Commercial, HR, and IT departments, including product display, salary table, and binary conversion.",
+    link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week5/week5.html",
+    tags: ["HTML", "CSS", "JavaScript", "Form Validation", "DOM Manipulation", "Event Handling"]
     },
     {
-  "title": "Week 6 – Hangman Game with Login and LocalStorage",
-  "description": "A Hangman game with a login screen that saves the player's nickname in localStorage. Includes word selection, letter guessing with validation, display of correct and wrong letters, win message with player's nickname, and game restart.",
-  "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week6/game.html",
-  "tags": ["HTML", "CSS", "JavaScript", "Game Development", "LocalStorage", "Event Handling"]
+  title: "Week 6 – Hangman Game with Login and LocalStorage",
+  description: "A Hangman game with a login screen that saves the player's nickname in localStorage. Includes word selection, letter guessing with validation, display of correct and wrong letters, win message with player's nickname, and game restart.",
+  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week6/game.html",
+  tags: ["HTML", "CSS", "JavaScript", "Game Development", "LocalStorage", "Event Handling"]
   }, 
+  {
+  title: "Week 8 – Digital Menu with React & TypeScript",
+  description: "A digital menu for a restaurant built with React and TypeScript using componentization. Includes a responsive menu, presentation screen, gnocchi and pasta cards with sauces, drinks categories, and a footer with social icons.",
+  link: "Bombardillo Crocodillo",
+  tags: ["React", "TypeScript", "Componentization", "CSS"]
+  }
   ];
 
   const container = document.getElementById('project-container');

@@ -28,6 +28,12 @@ function loadProjects() {
       description: "A JavaScript program that counts prime, even, and odd numbers using loops, with basic arithmetic via arrow functions and interactive results shown through the DOM.",
       link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%204/week4.html"
     },
+    {
+  "title": "Week 5 – Login Screen with Department Validation and Interactions",
+  "description": "Login form with user code, department selection, and password. Validates credentials with JavaScript and shows dynamic content for Commercial, HR, and IT departments, including product display, salary table, and binary conversion.",
+  "link": "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week%205/week5.html",
+  "tags": ["HTML", "CSS", "JavaScript", "Form Validation", "DOM Manipulation", "Event Handling"]
+  },
   ];
 
   const container = document.getElementById('project-container');

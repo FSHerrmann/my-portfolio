@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Week 5 – Login and Department Tasks</title>
+  <style>
+    /* Simple styles for layout and clarity */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    main {
+      max-width: 450px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #error-message {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+    #post-login-content {
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    img.product-image {
+      max-width: 100%;
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Week 5 - Login Screen</h1>
+
+    <!-- Login Form -->
+    <form id="login-form">
+      <label for="user-code">User Code:</label>
+      <input type="text" id="user-code" name="user-code" placeholder="Enter your user code" required />
+
+      <label for="department">Department:</label>
+      <select id="department" name="department" required>
+        <option value="" disabled selected>Select your department</option>
+        <option value="commercial">Commercial</option>
+        <option value="hr">HR</option>
+        <option value="it">IT</option>
+      </select>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Error message shown here -->
+    <div id="error-message"></div>
+
+    <!-- Content that shows after successful login -->
+    <div id="post-login-content"></div>
+  </main>
+
+  <script>
+    // Predefined user data for login validation
+    const users = {
+      commercial: { userCode: "CMCL12", password: "Com&c1@l;" },
+      hr: { userCode: "98HR", password: "RH!@2025" },
+      it: { userCode: "DEV4567TI", password: "IT&&||==2025" }
+    };
+
+    const form = document.getElementById('login-form');
+    const errorDiv = document.getElementById('error-message');
+    const postLoginDiv = document.getElementById('post-login-content');
+
+    // Listen for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      // Clear previous messages and content
+      errorDiv.textContent = "";
+      postLoginDiv.innerHTML = "";
+
+      // Get input values
+      const userCode = form['user-code'].value.trim();
+      const department = form['department'].value;
+      const password = form['password'].value;
+
+      // Validate credentials
+      if (!users[department]) {
+        errorDiv.textContent = "Please select a valid department.";
+        return;
+      }
+
+      const userData = users[department];
+      if (userCode !== userData.userCode || password !== userData.password) {
+        errorDiv.textContent = "Invalid user code or password for the selected department.";
+        return;
+      }
+
+      // Credentials are correct, proceed to show department content
+      showDepartmentContent(department);
+    });
+
+    // Function to display content based on department after login
+    function showDepartmentContent(dept) {
+      form.style.display = 'none'; // Hide login form after successful login
+
+      if (dept === 'commercial') {
+        showCommercialContent();
+      } else if (dept === 'hr') {
+        showHRContent();
+      } else if (dept === 'it') {
+        showITContent();
+      }
+    }
+
+    // Commercial department content
+    function showCommercialContent() {
+      const productName = "Super Widget";
+      const productPrice = "$49.99";
+      const productImageUrl = "https://via.placeholder.com/300x200?text=Product+Image";
+
+      const html = `
+        <h2>Welcome to Commercial Department</h2>
+        <img src="${productImageUrl}" alt="Product Image" class="product-image" />
+        <p><strong>Product:</strong> ${productName}</p>
+        <p><strong>Price:</strong> ${productPrice}</p>
+      `;
+
+      postLoginDiv.innerHTML = html;
+    }
+
+    // HR department content
+    function showHRContent() {
+      const html = `
+        <h2>Welcome to HR Department</h2>
+        <button id="show-positions-btn">View Positions and Salaries</button>
+        <div id="positions-table-container"></div>
+      `;
+      postLoginDiv.innerHTML = html;
+
+      document.getElementById('show-positions-btn').addEventListener('click', function() {
+        showPositionsTable();
+      });
+    }
+
+    // Function to show HR positions table
+    function showPositionsTable() {
+      const employees = [
+        { name: "Alice Johnson", department: "HR", position: "Recruiter", salary: "$3,500" },
+        { name: "Bob Smith", department: "HR", position: "HR Manager", salary: "$5,200" },
+        { name: "Carol White", department: "HR", position: "Payroll Specialist", salary: "$3,800" }
+      ];
+
+      let tableHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Position</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      employees.forEach(emp => {
+        tableHTML += `
+          <tr>
+            <td>${emp.name}</td>
+            <td>${emp.department}</td>
+            <td>${emp.position}</td>
+            <td>${emp.salary}</td>
+          </tr>
+        `;
+      });
+
+      tableHTML += `
+          </tbody>
+        </table>
+      `;
+
+      document.getElementById('positions-table-container').innerHTML = tableHTML;
+    }
+
+    // IT department content
+    function showITContent() {
+      const html = `
+        <h2>Welcome to IT Department</h2>
+        <label for="number-input">Enter a number to convert to binary:</label>
+        <input type="number" id="number-input" min="0" placeholder="Enter a number" />
+        <button id="convert-btn">Convert to Binary</button>
+        <p id="binary-result" style="margin-top: 15px; font-weight: bold;"></p>
+      `;
+      postLoginDiv.innerHTML = html;
+
+      document.getElementById('convert-btn').addEventListener('click', function() {
+        const numInput = document.getElementById('number-input').value.trim();
+        const resultP = document.getElementById('binary-result');
+
+        if (numInput === "" || isNaN(numInput)) {
+          resultP.textContent = "Please enter a valid number.";
+          resultP.style.color = "red";
+          return;
+        }
+
+        const num = parseInt(numInput, 10);
+        const binary = num.toString(2); // Convert to binary string
+        resultP.textContent = `Binary representation: ${binary}`;
+        resultP.style.color = "green";
+      });
+    }
+  </script>
+</body>
+</html>

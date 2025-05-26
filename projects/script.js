@@ -38,7 +38,7 @@ function loadProjects() {
     {
   title: "Week 6 – Hangman Game with Login and LocalStorage",
   description: "A Hangman game with a login screen that saves the player's nickname in localStorage. Includes word selection, letter guessing with validation, display of correct and wrong letters, win message with player's nickname, and game restart.",
-  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week6/game.html",
+  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week6/week6.html",
   tags: ["HTML", "CSS", "JavaScript", "Game Development", "LocalStorage", "Event Handling"]
   }, 
   {

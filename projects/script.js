@@ -38,14 +38,14 @@ function loadProjects() {
     {
   title: "Week 6 – Hangman Game with Login and LocalStorage",
   description: "A Hangman game with a login screen that saves the player's nickname in localStorage. Includes word selection, letter guessing with validation, display of correct and wrong letters, win message with player's nickname, and game restart.",
-  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week6/game.html",
+  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week6/game.html",
   tags: ["HTML", "CSS", "JavaScript", "Game Development", "LocalStorage", "Event Handling"]
   }, 
   {
-  title: "Week 8 – Digital Menu with React & TypeScript",
-  description: "A digital menu for a restaurant built with React and TypeScript using componentization. Includes a responsive menu, presentation screen, gnocchi and pasta cards with sauces, drinks categories, and a footer with social icons.",
-  link: "Bombardillo Crocodillo",
-  tags: ["React", "TypeScript", "Componentization", "CSS"]
+    title: "Week 8 – Digital Menu with React & TypeScript",
+    description: "A digital menu for a restaurant built with React and TypeScript using componentization. Includes a responsive navigation menu, presentation banner, Gnocchi and Pasta cards with integrated sauces (using CSS Grid), Drinks categories (using Flexbox), and a Footer with social icons.",
+    link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week8/mamamia-menu",
+    tags: ["React", "TypeScript", "Componentization", "CSS Grid", "Flexbox"]
   }
   ];
 

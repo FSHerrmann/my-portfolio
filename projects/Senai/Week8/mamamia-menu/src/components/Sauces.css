@@ -1,0 +1,20 @@
+.sauces-container {
+  padding: 2rem;
+}
+
+.sauces-container h2 {
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.sauces-list {
+  list-style: disc inside;
+  margin: 0;
+  padding: 0;
+}
+
+.sauces-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #444;
+}

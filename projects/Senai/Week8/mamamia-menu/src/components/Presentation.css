@@ -1,0 +1,38 @@
+/* Container splits the section in two columns */
+.presentation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+/* Left text block */
+.presentation-text {
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.presentation-text h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+.presentation-text p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #666;
+}
+
+/* Right image block */
+.presentation-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.presentation-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

@@ -1,0 +1,54 @@
+.pastas-container {
+  padding: 2rem;
+}
+
+.pastas-container h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.pastas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.pasta-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #fff;
+  text-align: center;
+}
+
+/* Image */
+.pasta-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Name */
+.pasta-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+/* Price */
+.pasta-card .price {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Inside the card, the Sauces component’s .sauces-container padding may be a bit much—override it: */
+.pasta-card .sauces-container {
+  padding: 0.5rem 0;
+  text-align: left;
+}
+
+.pasta-card .sauces-container h2 {
+  display: none; /* we already hid the title via showTitle=false */
+}

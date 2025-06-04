@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../../styles.css" />
+  <script src="../../script.js"></script>
+  <title>Week 9 – Senai Web Development Course</title>
+</head>
+
+<body class="week-page">
+  <div class="week-content">
+    <h1>Week 9 – Senai Web Development Course</h1>
+
+    <h2>Overview</h2>
+    <p>This page contains all the React-based development activities completed in Week 9 of the Senai Web Development course. The focus of this week is on creating a functional daily task manager and implementing core features such as state management, conditional rendering, persistence, and user interaction.</p>
+
+    <hr />
+
+    <h2>Tasks</h2>
+    <section>
+      <h3>✅ Task 1: Task Manager – Add New Task</h3>
+      <p><strong>Description:</strong> We are building a daily task manager. Each task must include:</p>
+      <ul>
+        <li>A description field;</li>
+        <li>A time period selector (Morning / Afternoon / Evening);</li>
+        <li>A completed status (checkbox).</li>
+      </ul>
+      <p>Create a component that allows users to add a new task by filling in the description, selecting the period, and clicking an "Add" button. The new task should be added to the task array in the main component.</p>
+
+      <h3>✅ Task 2: Task Manager – Display Tasks</h3>
+      <p><strong>Description:</strong> Display the list of tasks in three separate columns based on their period (Morning, Afternoon, Evening). This should appear below the task addition form.</p>
+      <p>Also, show the total number of completed tasks.</p>
+
+      <h3>✅ Task 3: Task Manager – Mark as Completed</h3>
+      <p><strong>Description:</strong> Each task item should include a checkbox to mark it as completed. When a task is marked as completed, its description should appear in light gray and be strikethrough.</p>
+
+      <h3>✅ Task 4: Task Manager – Progress Bar</h3>
+      <p><strong>Description:</strong> Create a component that displays the percentage of tasks completed. This component should receive at least two props: the total number of tasks and the number of completed tasks.</p>
+      <p><code>const progress = (completedTasks / totalTasks) * 100</code></p>
+
+      <h3>✅ Task 5: Task Manager – Data Persistence</h3>
+      <p><strong>Description:</strong> Implement data persistence using <code>localStorage</code>. Any task added or updated should be stored. When the app loads, check <code>localStorage</code> for existing tasks and load them into state.</p>
+      <p><em>Tip:</em> Use <code>useEffect</code> to synchronize the task list with localStorage.</p>
+
+      <h3>✅ Task 6: Stopwatch Challenge</h3>
+      <p><strong>Description:</strong> Deliver a stopwatch project that was developed in class during Week 9 (Session 2). The activity was assigned during the session and had a fixed time for development.</p>
+      <p>Submission must be made via GitHub link according to instructions given during class.</p>
+    </section>
+  </div>
+
+  <div id="footer"></div>
+  <script src="../../script.js"></script>
+</body>
+</html>

@@ -50,7 +50,7 @@ function loadProjects() {
   {
   title: "Week 9 – Task Manager with Progress and Stopwatch",
   description: "A React-based daily task manager with filtering by period (Morning, Afternoon, Evening), task completion tracking, a dynamic progress bar, persistent localStorage integration, and a standalone stopwatch.",
-  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week9/week9.html",
+  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week9",
   tags: ["React", "JavaScript", "HTML", "CSS"]
   }
   ];

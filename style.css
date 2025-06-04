@@ -186,8 +186,7 @@ section {
     opacity 0.5s,
     box-shadow 0.5s;
   z-index: 1;
-  width: 200px;
-  max-width: 98vw;
+  width: clamp(220px, 28vw, 320px);
   aspect-ratio: 2 / 3;
   background: none;
   border: none;

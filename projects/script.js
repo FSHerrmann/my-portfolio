@@ -46,6 +46,12 @@ function loadProjects() {
     description: "A digital menu for a restaurant built with React and TypeScript using componentization. Includes a responsive navigation menu, presentation banner, Gnocchi and Pasta cards with integrated sauces (using CSS Grid), Drinks categories (using Flexbox), and a Footer with social icons.",
     link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/Week8/mamamia-menu",
     tags: ["React", "TypeScript", "Componentization", "CSS Grid", "Flexbox"]
+  },
+  {
+  title: "Week 9 – Task Manager with Progress and Stopwatch",
+  description: "A React-based daily task manager with filtering by period (Morning, Afternoon, Evening), task completion tracking, a dynamic progress bar, persistent localStorage integration, and a standalone stopwatch.",
+  link: "https://fsherrmann.github.io/my-portfolio/projects/Senai/week9/week9.html",
+  tags: ["React", "JavaScript", "HTML", "CSS"]
   }
   ];
 
